@@ -70,9 +70,33 @@ public class MainActivity extends AppCompatActivity {
                         tValue = tValue / 100;
                     float imc = pValue / (tValue * tValue);
                     String resultat = "Votre IMC est "+imc+".";
+                    if (commentaire.isChecked())
+                        resultat += interpreteIMC(imc);
                     result.setText(resultat);
                 }
             }
+        }
+        public String interpreteIMC(float f) {
+            if (f < 16.5) {
+                return "\nFamine";
+            }
+            else if (f >= 16.5 && f < 18.5) {
+                return "\nMaigreur";
+            }
+            else if (f >= 18.5 && f < 25) {
+                return "\nCorpulence normale";
+            }
+            else if (f >= 25 && f < 30) {
+                return "\nSurpoids";
+            }
+            else if (f >= 30 && f < 35) {
+                return "\nObésité modérée";
+            }
+            else if (f >= 35 && f < 40) {
+                return "\nObésité sévère";
+            }
+
+            return "\nObésité morbide ou sévère";
         }
     };
 
@@ -109,4 +133,5 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable s) {}
     };
+
 }
