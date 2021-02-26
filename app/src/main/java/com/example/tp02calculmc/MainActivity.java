@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             String p = poids.getText().toString();
             float tValue = Float.valueOf(t);
 
+            if (t.contains(".")) {
+            //Utiliser setChecked(boolean checked) ou toggle()
+            }
             //V&rifie que la taille est cohérente
             if(tValue <= 0)
                 Toast.makeText(MainActivity.this, "La taille doit être positive", Toast.LENGTH_SHORT).show();
@@ -95,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
             else if (f >= 35 && f < 40) {
                 return "\nObésité sévère";
             }
-
             return "\nObésité morbide ou sévère";
         }
     };
